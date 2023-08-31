@@ -1,2 +1,2 @@
 #!/bin/bash
-chown vincent.staff --dereference ./_hello
+chown vincent.staff --no-dereference ./_hello
