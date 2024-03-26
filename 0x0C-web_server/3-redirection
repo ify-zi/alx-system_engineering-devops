@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Reconfigure Nginx server to redirection permanently
+
+apt-get -y install nginx
+nfw allow 'Nginx HTTP'
+echo "Hello World!" >> /var/www/html/index.html
+sudo chown -R $USER:$USER /var/www/html
+sudo chmod -R 755 /var/www
+sed -i '37i\rewrite ^/redirect_me https://www.youtube.com/ permanent;' /etc/nginx/sites-available/default
+service nginx start
