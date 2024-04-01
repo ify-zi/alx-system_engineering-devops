@@ -4,6 +4,7 @@
 sudo apt-get update
 sudo apt-get -y install haproxy
 
+sudo service haproxy start
 # enabled to start at boot
 echo "ENABLED=1" | sudo tee /etc/haproxy/default/haproxy
 
