@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Script sets up a Nginx web server on a server and add a custom http_response header
+
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo service nginx start
+sudo ufw allow 'Nginx HTTP'
+echo "Hello World!" | sudo tee /var/www/html/index.html
+sed -i '/listen 80 default_server;/a rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+sed -i '/listen 80 default_server;/a add_header X-Served-By $hostname;' /etc/nginx/sites-available/default
+sudo service nginx restart
