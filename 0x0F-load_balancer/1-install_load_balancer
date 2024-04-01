@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Script install and configure HaProxy load balancer to use the roundrobin algo to share request
+
+sudo apt-get update
+sudo apt-get -y install haproxy
+
+# enabled to start at boot
+echo "ENABLED=1" | sudo tee /etc/haproxy/default/haproxy
+
+# backup init config
+sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.backup
+
+config = "
+frontend my_frontend
+    bind *:80
+    mode http
+    default_backend my_backend
+
+backend my_backend
+    balance roundrobin
+    server 529356-web-01 52.87.219.34:80 check
+    server 529356-web-02 100.25.132.43:80 check
+"
+echo "$config" | sudo tee -a /etc/haproxy/haproxy.cfg
+
+sudo service haproxy restart
