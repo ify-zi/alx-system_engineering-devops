@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Script create an infinte loop with with a trap on SIGTERM
 
-trap "echo 'I am Invicible!!!'" -15
+trap "echo 'I am invicible!!!'" -15
 while true
 do
     echo "To infinity and beyond"
