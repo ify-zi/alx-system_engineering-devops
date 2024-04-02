@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Script debugs "connection refused" to port 80 by installing a web server
+
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo service nginx start
