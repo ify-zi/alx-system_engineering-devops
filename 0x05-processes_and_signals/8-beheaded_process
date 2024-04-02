@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# script ended the trap in other terminal
+
+pkill -9 "bash ./7-highlander" -f
