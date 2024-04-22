@@ -10,15 +10,12 @@ import sys
 
 if __name__ == '__main__':
 
-    test_url = 'https://jsonplaceholder.typicode.com/'
-    user_id = sys.argv[1]
-    user_info = requests.get(test_url + "users/{}".format(user_id)).json()
-    todos_info = requests.get(test_url + "todos",
-                              params={'user_id': user_id}).json()
-    dict_values = {user_id: [
-                             {'title': todo.get('title'),
-                              'completed': todo.get('completed'),
-                              'username': user_info.get('username')}
-                   for todo in todos_info]}
-    with open("{}.json".format(user_id), "w", newline="") as j_file:
-        json.dump(dict_values, j_file)
+    u_id = sys.argv[1]
+    url = "https://jsonplaceholder.typicode.com/"
+    user = requests.get(url+"users/{}".format(u_id)).json()
+    username = user.get("username")
+    todos = requests.get(url+"todos", params={"userId": u_id}).json()
+
+    with open("{}.json".format(u_id), "w") as jsonfile:
+        json.dump({u_id: [{"task": t.get("title"), "completed": t.get(
+            "completed"), "username": username} for t in todos]}, jsonfile)
