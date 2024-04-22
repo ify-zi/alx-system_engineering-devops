@@ -19,6 +19,6 @@ if __name__ == '__main__':
                              {'title': todo.get('title'),
                               'completed': todo.get('completed'),
                               'username': user_info.get('username')
-                             } for todo in todos_info[:20]}
+                             } for todo in todos_info[:20]]}
     with open("{}.json".format(user_id), "w", newline="") as j_file:
         json.dump(dict_values, j_file)
