@@ -23,4 +23,4 @@ if __name__ == '__main__':
                           user_info.get("username"),
                           t.get("completed"),
                           t.get("title")]
-                         ) for t in todos_info[:19]]
+                         ) for t in todos_info[:20]]
