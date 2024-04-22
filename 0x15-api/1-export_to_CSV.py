@@ -16,7 +16,7 @@ if __name__ == '__main__':
     todos_info = requests.get(test_url + "todos",
                               params={'user_id': user_id}).json()
 
-    with open("{}.csv".format(user_id), 'w', encoding='utf-8') as exp:
+    with open("{}.csv".format(user_id), 'w', newline="") as exp:
         writer = csv.writer(exp, quoting=csv.QUOTE_ALL)
         [writer.writerow(
                          [user_id,
