@@ -25,7 +25,7 @@ if __name__ == '__main__':
         writer = csv.writer(exp, quoting=csv.QUOTE_ALL)
         [writer.writerow(
                          [user_id,
-                         user_info.get("username"),
-                         t.get("completed"),
-                         t.get("title")]
+                          user_info.get("username"),
+                          t.get("completed"),
+                          t.get("title")]
                          ) for t in todos_info]
