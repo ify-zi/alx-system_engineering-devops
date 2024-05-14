@@ -1,2 +1,2 @@
 # Deploying using Application Server
-~~~Gunicorn~~~
+~~~Gunicorn 22.0 ~~~
