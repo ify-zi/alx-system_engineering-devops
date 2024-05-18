@@ -37,10 +37,10 @@ server {
                 proxy_pass http://0.0.0.0:5000/airbnb-onepage/;
         }
 
-	#Serve proxy request 2
-        location ~ /airbnb-dynamic/number_odd_or_even/(/d+)$ {
-                proxy_pass http://0.0.0.0:5001/airbnb-dynamic/number_odd_or_even/$1;
-	}
+	    #Serve proxy request 2
+            location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
+               proxy_pass http://0.0.0.0:5001/airbnb-dynamic/number_odd_or_even/$1;
+        }
 
         #Handle page not found
         error_page 404 /my_404.html;
