@@ -39,7 +39,7 @@ server {
 
 	    #Serve proxy request 2
             location ~ /airbnb-dynamic/number_odd_or_even/(\d+)$ {
-               proxy_pass http://0.0.0.0:5001/airbnb-dynamic/number_odd_or_even/$1;
+               proxy_pass http://0.0.0.0:5001/number_odd_or_even/$1;
         }
 
         #Handle page not found
